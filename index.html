@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Research-Driven Book Marketing for Authors Who Deserve to Be Discovered. Strategic positioning, category optimization, and discovery solutions.">
+    <title>Alyce B. Frick Book Marketing | Research-Driven Marketing for Authors</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gold: #FFD700;
+            --accent-gold: #FFA500;
+            --deep-navy: #0A1929;
+            --rich-purple: #4A148C;
+            --bright-teal: #00BCD4;
+            --coral: #FF6B6B;
+            --white: #FFFFFF;
+            --light-gray: #F5F5F5;
+            --text-dark: #1A1A1A;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--deep-navy) 0%, var(--rich-purple) 100%);
+            color: var(--white);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .logo-container img {
+            width: 70px;
+            height: auto;
+            filter: brightness(1.1);
+        }
+
+        .brand-text h1 {
+            font-size: 1.6rem;
+            font-weight: 900;
+            margin-bottom: 0.3rem;
+            color: var(--primary-gold);
+        }
+
+        .brand-text p {
+            font-size: 0.95rem;
+            color: var(--bright-teal);
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--primary-gold);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--primary-gold);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--rich-purple) 0%, var(--deep-navy) 50%, var(--rich-purple) 100%);
+            color: var(--white);
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-accent {
+            color: var(--primary-gold);
+            display: block;
+            margin-top: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            color: var(--bright-teal);
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--accent-gold) 100%);
+            color: var(--deep-navy);
+            padding: 1.2rem 3rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 25px rgba(255, 215, 0, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 35px rgba(255, 215, 0, 0.6);
+        }
+
+        section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--rich-purple);
+            font-weight: 900;
+        }
+
+        .section-divider {
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-gold) 0%, var(--coral) 50%, var(--bright-teal) 100%);
+            margin: 1.5rem auto;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        #about {
+            background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-content img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(74, 20, 140, 0.3);
+            margin: 0 auto;
+            display: block;
+            border: 5px solid var(--primary-gold);
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--rich-purple);
+            font-weight: 900;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.9;
+        }
+
+        .about-text strong {
+            color: var(--coral);
+            font-weight: 700;
+        }
+
+        #services {
+            background: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, var(--white) 0%, var(--light-gray) 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 3px solid transparent;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-gold) 0%, var(--coral) 50%, var(--bright-teal) 100%);
+        }
+
+        .service-card:hover {
+            border-color: var(--primary-gold);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.3);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.7rem;
+            margin-bottom: 1.5rem;
+            color: var(--rich-purple);
+            font-weight: 900;
+        }
+
+        .service-card p {
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .service-card ul {
+            margin-top: 1rem;
+            padding-left: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .service-card li {
+            margin-bottom: 0.7rem;
+            font-weight: 500;
+        }
+
+        .pricing-note {
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--accent-gold) 100%);
+            padding: 4rem 2rem;
+            border-radius: 20px;
+            margin-top: 3rem;
+            box-shadow: 0 10px 35px rgba(255, 215, 0, 0.4);
+        }
+
+        .pricing-note h3 {
+            font-size: 2.5rem;
+            color: var(--deep-navy);
+            margin-bottom: 1rem;
+            font-weight: 900;
+        }
+
+        .pricing-note p {
+            font-size: 1.3rem;
+            color: var(--deep-navy);
+            font-weight: 700;
+        }
+
+        #testimonials {
+            background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            border-left: 6px solid var(--coral);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.3);
+        }
+
+        .testimonial-quote {
+            font-size: 1.15rem;
+            font-style: italic;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            line-height: 1.9;
+        }
+
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .testimonial-name {
+            font-weight: 700;
+            color: var(--rich-purple);
+            font-size: 1.2rem;
+        }
+
+        .testimonial-book {
+            color: var(--text-dark);
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        .testimonial-stats {
+            color: var(--coral);
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+            font-weight: 700;
+        }
+
+        #contact {
+            background: linear-gradient(135deg, var(--deep-navy) 0%, var(--rich-purple) 100%);
+            color: var(--white);
+        }
+
+        #contact .section-header h2,
+        #contact .section-header p {
+            color: var(--white);
+        }
+
+        #contact .section-header h2 {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 4rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            font-size: 1.1rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 3px solid var(--bright-teal);
+            border-radius: 10px;
+            font-size: 1.05rem;
+            font-family: 'Montserrat', sans-serif;
+            background: var(--white);
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-gold);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .form-group textarea {
+            min-height: 180px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--accent-gold) 100%);
+            color: var(--deep-navy);
+            padding: 1.3rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 25px rgba(255, 215, 0, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 35px rgba(255, 215, 0, 0.6);
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 2px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .contact-info p {
+            margin-bottom: 0.8rem;
+            color: var(--bright-teal);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .contact-info a {
+            color: var(--primary-gold);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: var(--deep-navy);
+            color: var(--bright-teal);
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        footer p {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+
+            .contact-form {
+                padding: 2.5rem 1.5rem;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="Screenshot 2026-02-06 140220.png" alt="Alyce B. Frick Book Marketing Logo">
+                
+                <div class="brand-text">
+                    <h1>Alyce B. Frick Book Marketing</h1>
+                    <p>Research-Driven. Results-Focused.</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#testimonials">Clients</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Research-Driven Book Marketing for Authors <span class="hero-accent">Who Deserve to Be Discovered</span></h2>
+            <p>Your book isn't failing. It's invisible. I help authors fix the discovery gaps keeping readers from finding the work they'd love.</p>
+            <a href="#contact" class="cta-button">Start the Conversation</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="section-header">
+            <h2>About Alyce</h2>
+            <div class="section-divider"></div>
+            <p>Strategic book marketing built on data, not guesswork</p>
+        </div>
+        <div class="about-content">
+            <img src="Alyce.expert.png" alt="Alyce B. Frick">
+            
+            <div class="about-text">
+                <h3>I help authors who write great books but can't find their readers.</h3>
+                <p>For over a decade, I've specialized in one thing: identifying why well-written books sit undiscovered while mediocre ones thrive. The answer is rarely quality. It's almost always positioning.</p>
+                <p>I work with authors across genres, from debut novelists to backlist veterans, who need more than generic marketing advice. Through deep research into review patterns, category positioning, reader behavior, and algorithmic signals, I uncover the specific gaps keeping your book invisible.</p>
+                <p>My approach is calm, respectful, and data-driven. No hype. No empty promises. Just honest analysis of what's working, what isn't, and exactly how to fix it.</p>
+                <p><strong>Because your readers exist. They just don't know you do yet.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="section-header">
+            <h2>Services</h2>
+            <div class="section-divider"></div>
+            <p>Strategic solutions for every stage of your author journey</p>
+        </div>
+        <div class="services-grid">
+            
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Book Discovery Analysis</h3>
+                <p>A comprehensive audit of why your book isn't being discovered, including:</p>
+                <ul>
+                    <li>Category positioning assessment</li>
+                    <li>Keyword gap analysis</li>
+                    <li>Competitive landscape mapping</li>
+                    <li>Review sentiment analysis</li>
+                    <li>Algorithmic visibility diagnosis</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <h3>Strategic Repositioning</h3>
+                <p>Fixing the mechanics that keep readers from finding you:</p>
+                <ul>
+                    <li>Category optimization strategy</li>
+                    <li>Backend keyword restructuring</li>
+                    <li>Metadata refinement</li>
+                    <li>Comp title identification</li>
+                    <li>Genre expectation alignment</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📚</div>
+                <h3>Series Relaunch Strategy</h3>
+                <p>Coordinated visibility for multi-book authors:</p>
+                <ul>
+                    <li>Cross-book momentum planning</li>
+                    <li>Series funnel optimization</li>
+                    <li>Pricing strategy architecture</li>
+                    <li>Back-matter conversion design</li>
+                    <li>Launch timing coordination</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🔄</div>
+                <h3>Backlist Revitalization</h3>
+                <p>Breathing new life into older titles:</p>
+                <ul>
+                    <li>Archive content assessment</li>
+                    <li>Trend alignment opportunities</li>
+                    <li>Bundling & repackaging strategy</li>
+                    <li>Second-launch positioning</li>
+                    <li>Award credential leverage</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🌐</div>
+                <h3>Platform Building Consultation</h3>
+                <p>Sustainable author brand development:</p>
+                <ul>
+                    <li>Genre community identification</li>
+                    <li>Platform presence strategy</li>
+                    <li>Content marketing planning</li>
+                    <li>Reader retention systems</li>
+                    <li>Newsletter optimization</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">✍️</div>
+                <h3>Launch Consultation</h3>
+                <p>Pre-publication positioning for maximum impact:</p>
+                <ul>
+                    <li>Pre-launch category selection</li>
+                    <li>ARC strategy development</li>
+                    <li>Review acquisition planning</li>
+                    <li>Metadata optimization</li>
+                    <li>Launch timeline architecture</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="pricing-note">
+            <h3>Investment Range: $299 to $1,299</h3>
+            <p>Custom packages tailored to your specific goals and catalog size</p>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <div class="section-header">
+            <h2>Author Success Stories</h2>
+            <div class="section-divider"></div>
+            <p>Results from authors who chose strategic positioning over guesswork</p>
+        </div>
+        <div class="testimonials-grid">
+            
+            <div class="testimonial-card">
+                <p class="testimonial-quote">"Working with Alyce transformed how I understood my book's place in the market. Her research was meticulous, her insights were surgical, and the repositioning strategy she developed gave my novel the visibility it deserved. Within weeks, I saw sustained momentum I'd never achieved on my own."</p>
+                <div class="testimonial-author">
+                    <span class="testimonial-name">Alice Winn</span>
+                    <span class="testimonial-book">Author of <em>In Memoriam: A Novel</em></span>
+                    <span class="testimonial-stats">★ 4.6/5 on Amazon (10,681 reviews) | 4.5/5 on Goodreads (75,692 ratings)</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <p class="testimonial-quote">"Alyce doesn't just offer generic marketing advice. She digs into the data, identifies exactly where discovery is breaking down, and presents solutions that actually make sense for your specific book. Her approach is respectful, professional, and refreshingly honest."</p>
+                <div class="testimonial-author">
+                    <span class="testimonial-name">Elise Marion</span>
+                    <span class="testimonial-book">Author of <em>My Ex-Wife's Wedding</em></span>
+                    <span class="testimonial-stats">Strong reader engagement in contemporary fiction markets</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <p class="testimonial-quote">"I had a good book that wasn't finding readers. Alyce showed me why. Her category repositioning and keyword strategy unlocked visibility I didn't know was possible. The best part? She explained everything clearly, so I understood not just what to do, but why it mattered."</p>
+                <div class="testimonial-author">
+                    <span class="testimonial-name">Siân O'Gorman</span>
+                    <span class="testimonial-book">Author of <em>Life After You</em></span>
+                    <span class="testimonial-stats">★ 4.3/5 on Amazon (5,231 reviews) | 4.3/5 on Goodreads (6,785 ratings)</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-header">
+            <h2>Let's Talk About Your Book</h2>
+            <div class="section-divider"></div>
+            <p>Tell me what's not working. I'll tell you why and how to fix it.</p>
+        </div>
+        <div class="contact-container">
+            <form class="contact-form" action="https://formspree.io/f/xnjbakwl" method="POST">
+                <div class="form-group">
+                    <label for="name">Your Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="book-title">Book Title</label>
+                    <input type="text" id="book-title" name="book-title">
+                </div>
+                <div class="form-group">
+                    <label for="genre">Genre</label>
+                    <select id="genre" name="genre">
+                        <option value="">Select genre...</option>
+                        <option value="romance">Romance</option>
+                        <option value="thriller">Thriller/Suspense</option>
+                        <option value="fantasy">Fantasy</option>
+                        <option value="scifi">Science Fiction</option>
+                        <option value="mystery">Mystery</option>
+                        <option value="literary">Literary Fiction</option>
+                        <option value="horror">Horror</option>
+                        <option value="nonfiction">Nonfiction</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">What's your biggest challenge right now? *</label>
+                    <textarea id="message" name="message" required placeholder="e.g., My book has great reviews but no visibility... I have a series but each book launched separately... I'm stuck at rank #500k and don't know why..."></textarea>
+                </div>
+                <button type="submit" class="submit-button">Send Your Inquiry</button>
+            </form>
+            <div class="contact-info">
+                <p><strong>Email:</strong> <a href="mailto:alycefrick00@gmail.com">alycefrick00@gmail.com</a></p>
+                <p><strong>Serving Authors Worldwide</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Alyce B. Frick Book Marketing. All rights reserved.</p>
+        <p>Research-Driven Book Marketing for Authors Who Deserve to Be Discovered</p>
+    </footer>
+
+</body>
+</html>

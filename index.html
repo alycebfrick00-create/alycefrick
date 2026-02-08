@@ -27,6 +27,70 @@
             --white: #FFFFFF;
             --light-gray: #F5F5F5;
             --text-dark: #1A1A1A;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --gradient-4: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --gradient-5: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(255, 215, 0, 0.8), 0 0 60px rgba(255, 215, 0, 0.6); }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes rotate-gradient {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
         }
 
         body {
@@ -34,6 +98,7 @@
             line-height: 1.7;
             color: var(--text-dark);
             background-color: var(--white);
+            overflow-x: hidden;
         }
 
         h1, h2, h3, h4 {
@@ -44,6 +109,8 @@
 
         header {
             background: linear-gradient(135deg, var(--deep-navy) 0%, var(--rich-purple) 100%);
+            background-size: 200% 200%;
+            animation: gradient-shift 8s ease infinite;
             color: var(--white);
             padding: 1.5rem 2rem;
             position: sticky;
@@ -64,12 +131,19 @@
             display: flex;
             align-items: center;
             gap: 1.5rem;
+            animation: slideInLeft 0.8s ease-out;
         }
 
         .logo-container img {
             width: 70px;
             height: auto;
-            filter: brightness(1.1);
+            filter: brightness(1.1) drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .logo-container img:hover {
+            transform: rotate(360deg) scale(1.1);
+            filter: brightness(1.3) drop-shadow(0 0 20px rgba(255, 215, 0, 0.8));
         }
 
         .brand-text h1 {
@@ -77,6 +151,7 @@
             font-weight: 900;
             margin-bottom: 0.3rem;
             color: var(--primary-gold);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .brand-text p {
@@ -84,12 +159,47 @@
             color: var(--bright-teal);
             font-weight: 600;
             font-style: italic;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: var(--primary-gold);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger:hover span {
+            background: var(--bright-teal);
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
         }
 
         nav ul {
             list-style: none;
             display: flex;
             gap: 2.5rem;
+            animation: slideInRight 0.8s ease-out;
         }
 
         nav a {
@@ -108,7 +218,7 @@
             left: 0;
             width: 0;
             height: 3px;
-            background: var(--primary-gold);
+            background: linear-gradient(90deg, var(--primary-gold), var(--bright-teal));
             transition: width 0.3s ease;
         }
 
@@ -118,10 +228,13 @@
 
         nav a:hover {
             color: var(--primary-gold);
+            transform: translateY(-2px);
         }
 
         .hero {
             background: linear-gradient(135deg, var(--rich-purple) 0%, var(--deep-navy) 50%, var(--rich-purple) 100%);
+            background-size: 200% 200%;
+            animation: gradient-shift 10s ease infinite;
             color: var(--white);
             padding: 6rem 2rem;
             text-align: center;
@@ -132,11 +245,12 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.15) 0%, transparent 70%);
+            animation: rotate-gradient 20s linear infinite;
         }
 
         .hero-content {
@@ -144,6 +258,7 @@
             margin: 0 auto;
             position: relative;
             z-index: 1;
+            animation: fadeInUp 1s ease-out;
         }
 
         .hero h2 {
@@ -151,13 +266,15 @@
             font-weight: 900;
             margin-bottom: 1.5rem;
             line-height: 1.2;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            animation: fadeInUp 1s ease-out 0.2s both;
         }
 
         .hero-accent {
             color: var(--primary-gold);
             display: block;
             margin-top: 0.5rem;
+            animation: pulse 2s ease-in-out infinite;
         }
 
         .hero p {
@@ -166,26 +283,32 @@
             color: var(--bright-teal);
             font-weight: 400;
             line-height: 1.6;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out 0.4s both;
         }
 
         .cta-button {
             display: inline-block;
             background: linear-gradient(135deg, var(--primary-gold) 0%, var(--accent-gold) 100%);
+            background-size: 200% 200%;
             color: var(--deep-navy);
             padding: 1.2rem 3rem;
             text-decoration: none;
             border-radius: 50px;
             font-size: 1.2rem;
             font-weight: 700;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             box-shadow: 0 6px 25px rgba(255, 215, 0, 0.4);
             text-transform: uppercase;
             letter-spacing: 1px;
+            animation: fadeInUp 1s ease-out 0.6s both, glow 2s ease-in-out infinite;
         }
 
         .cta-button:hover {
             transform: translateY(-5px) scale(1.05);
             box-shadow: 0 10px 35px rgba(255, 215, 0, 0.6);
+            background-position: 100% 0;
+            animation: glow 1s ease-in-out infinite;
         }
 
         section {
@@ -197,6 +320,7 @@
         .section-header {
             text-align: center;
             margin-bottom: 4rem;
+            animation: fadeInUp 0.8s ease-out;
         }
 
         .section-header h2 {
@@ -204,13 +328,18 @@
             margin-bottom: 1rem;
             color: var(--rich-purple);
             font-weight: 900;
+            position: relative;
+            display: inline-block;
         }
 
         .section-divider {
             width: 100px;
             height: 4px;
             background: linear-gradient(90deg, var(--primary-gold) 0%, var(--coral) 50%, var(--bright-teal) 100%);
+            background-size: 200% 200%;
+            animation: gradient-shift 3s ease infinite;
             margin: 1.5rem auto;
+            border-radius: 2px;
         }
 
         .section-header p {
@@ -219,6 +348,115 @@
             max-width: 800px;
             margin: 0 auto;
             font-weight: 400;
+        }
+
+        /* Lead Magnet Section */
+        #lead-magnet {
+            background: linear-gradient(135deg, var(--light-gray) 0%, #E8EAF6 100%);
+            padding: 5rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #lead-magnet::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0, 188, 212, 0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .lead-magnet-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            background: var(--white);
+            padding: 4rem 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(74, 20, 140, 0.2);
+            border: 3px solid var(--primary-gold);
+            position: relative;
+            animation: fadeInUp 0.8s ease-out;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .lead-magnet-container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(74, 20, 140, 0.3);
+        }
+
+        .lead-magnet-container h2 {
+            font-size: 2.5rem;
+            color: var(--rich-purple);
+            margin-bottom: 1rem;
+            font-weight: 900;
+        }
+
+        .lead-magnet-container h3 {
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, var(--coral), var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .lead-magnet-container p {
+            font-size: 1.15rem;
+            color: var(--text-dark);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .lead-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .lead-form input {
+            padding: 1.2rem;
+            border: 3px solid var(--bright-teal);
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .lead-form input:focus {
+            outline: none;
+            border-color: var(--primary-gold);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .lead-form button {
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--accent-gold) 100%);
+            background-size: 200% 200%;
+            color: var(--deep-navy);
+            padding: 1.3rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 25px rgba(255, 215, 0, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .lead-form button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 35px rgba(255, 215, 0, 0.6);
+            background-position: 100% 0;
+            animation: pulse 0.5s ease;
         }
 
         #about {
@@ -240,12 +478,27 @@
             margin: 0 auto;
             display: block;
             border: 5px solid var(--primary-gold);
+            transition: all 0.5s ease;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .about-content img:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 20px 60px rgba(74, 20, 140, 0.5);
+            border-color: var(--bright-teal);
+        }
+
+        .about-text {
+            animation: fadeInUp 0.8s ease-out 0.2s both;
         }
 
         .about-text h3 {
             font-size: 2rem;
             margin-bottom: 1.5rem;
-            color: var(--rich-purple);
+            background: linear-gradient(135deg, var(--rich-purple), var(--bright-teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             font-weight: 900;
         }
 
@@ -262,6 +515,7 @@
 
         #services {
             background: var(--white);
+            position: relative;
         }
 
         .services-grid {
@@ -280,7 +534,16 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
             position: relative;
             overflow: hidden;
+            animation: fadeInUp 0.6s ease-out;
+            animation-fill-mode: both;
         }
+
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.4s; }
+        .service-card:nth-child(5) { animation-delay: 0.5s; }
+        .service-card:nth-child(6) { animation-delay: 0.6s; }
 
         .service-card::before {
             content: '';
@@ -290,24 +553,55 @@
             right: 0;
             height: 5px;
             background: linear-gradient(90deg, var(--primary-gold) 0%, var(--coral) 50%, var(--bright-teal) 100%);
+            background-size: 200% 200%;
+            animation: gradient-shift 3s ease infinite;
+        }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1), transparent);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .service-card:hover::after {
+            width: 500px;
+            height: 500px;
         }
 
         .service-card:hover {
             border-color: var(--primary-gold);
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.3);
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(255, 215, 0, 0.4);
         }
 
         .service-icon {
             font-size: 3rem;
             margin-bottom: 1.5rem;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.2) rotate(360deg);
         }
 
         .service-card h3 {
             font-size: 1.7rem;
             margin-bottom: 1.5rem;
-            color: var(--rich-purple);
+            background: linear-gradient(135deg, var(--rich-purple), var(--coral));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             font-weight: 900;
+            position: relative;
+            z-index: 1;
         }
 
         .service-card p {
@@ -315,26 +609,56 @@
             line-height: 1.8;
             margin-bottom: 1rem;
             font-weight: 600;
+            position: relative;
+            z-index: 1;
         }
 
         .service-card ul {
             margin-top: 1rem;
             padding-left: 1.5rem;
             color: var(--text-dark);
+            position: relative;
+            z-index: 1;
         }
 
         .service-card li {
             margin-bottom: 0.7rem;
             font-weight: 500;
+            transition: transform 0.2s ease;
+        }
+
+        .service-card:hover li {
+            transform: translateX(5px);
         }
 
         .pricing-note {
             text-align: center;
-            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--accent-gold) 100%);
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--accent-gold) 50%, var(--coral) 100%);
+            background-size: 200% 200%;
+            animation: gradient-shift 5s ease infinite;
             padding: 4rem 2rem;
             border-radius: 20px;
             margin-top: 3rem;
             box-shadow: 0 10px 35px rgba(255, 215, 0, 0.4);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-note::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+            animation: rotate-gradient 10s linear infinite;
+        }
+
+        .pricing-note:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 50px rgba(255, 215, 0, 0.6);
         }
 
         .pricing-note h3 {
@@ -342,12 +666,133 @@
             color: var(--deep-navy);
             margin-bottom: 1rem;
             font-weight: 900;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 1;
         }
 
         .pricing-note p {
             font-size: 1.3rem;
             color: var(--deep-navy);
             font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* How It Works Section */
+        #how-it-works {
+            background: linear-gradient(135deg, var(--white) 0%, var(--light-gray) 100%);
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .step-card {
+            background: var(--white);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-top: 5px solid var(--primary-gold);
+            transition: all 0.4s ease;
+            animation: fadeInUp 0.6s ease-out;
+            animation-fill-mode: both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-card:nth-child(1) { animation-delay: 0.1s; }
+        .step-card:nth-child(2) { animation-delay: 0.2s; }
+        .step-card:nth-child(3) { animation-delay: 0.3s; }
+        .step-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .step-card:hover::before {
+            left: 100%;
+        }
+
+        .step-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(74, 20, 140, 0.3);
+            border-top-color: var(--bright-teal);
+        }
+
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--accent-gold) 100%);
+            color: var(--deep-navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 900;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover .step-number {
+            transform: rotate(360deg) scale(1.1);
+            box-shadow: 0 6px 25px rgba(255, 215, 0, 0.6);
+        }
+
+        .step-card h3 {
+            font-size: 1.6rem;
+            background: linear-gradient(135deg, var(--rich-purple), var(--bright-teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+        }
+
+        .step-card p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        .timeline-note {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 15px;
+            border-left: 5px solid var(--coral);
+            box-shadow: 0 5px 20px rgba(255, 107, 107, 0.2);
+            animation: fadeInUp 0.8s ease-out;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-note:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 30px rgba(255, 107, 107, 0.3);
+        }
+
+        .timeline-note p {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .timeline-note strong {
+            color: var(--coral);
         }
 
         #testimonials {
@@ -367,12 +812,32 @@
             border-radius: 20px;
             border-left: 6px solid var(--coral);
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
+            animation: fadeInUp 0.6s ease-out;
+            animation-fill-mode: both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-card:nth-child(1) { animation-delay: 0.1s; }
+        .testimonial-card:nth-child(2) { animation-delay: 0.2s; }
+        .testimonial-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 8rem;
+            color: rgba(255, 215, 0, 0.1);
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
         }
 
         .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.3);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(255, 107, 107, 0.4);
+            border-left-color: var(--primary-gold);
         }
 
         .testimonial-quote {
@@ -381,17 +846,24 @@
             color: var(--text-dark);
             margin-bottom: 2rem;
             line-height: 1.9;
+            position: relative;
+            z-index: 1;
         }
 
         .testimonial-author {
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
+            position: relative;
+            z-index: 1;
         }
 
         .testimonial-name {
             font-weight: 700;
-            color: var(--rich-purple);
+            background: linear-gradient(135deg, var(--rich-purple), var(--coral));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             font-size: 1.2rem;
         }
 
@@ -408,8 +880,191 @@
             font-weight: 700;
         }
 
+        /* FAQ Section */
+        #faq {
+            background: var(--white);
+        }
+
+        .faq-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            margin-top: 3rem;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border: 2px solid var(--light-gray);
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .faq-item:nth-child(1) { animation-delay: 0.1s; }
+        .faq-item:nth-child(2) { animation-delay: 0.15s; }
+        .faq-item:nth-child(3) { animation-delay: 0.2s; }
+        .faq-item:nth-child(4) { animation-delay: 0.25s; }
+        .faq-item:nth-child(5) { animation-delay: 0.3s; }
+        .faq-item:nth-child(6) { animation-delay: 0.35s; }
+        .faq-item:nth-child(7) { animation-delay: 0.4s; }
+
+        .faq-item:hover {
+            border-color: var(--primary-gold);
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
+            transform: translateX(5px);
+        }
+
+        .faq-question {
+            background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
+            padding: 1.8rem 2.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--rich-purple);
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--accent-gold) 100%);
+            color: var(--deep-navy);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 2rem;
+            font-weight: 700;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            padding: 0 2.5rem;
+            background: var(--white);
+        }
+
+        .faq-answer.active {
+            max-height: 500px;
+            padding: 1.8rem 2.5rem;
+        }
+
+        .faq-answer p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: var(--text-dark);
+        }
+
+        /* Privacy Policy Section */
+        #privacy-policy {
+            background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
+        }
+
+        .privacy-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .privacy-section {
+            background: var(--white);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid var(--primary-gold);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            animation: fadeInUp 0.6s ease-out;
+            animation-fill-mode: both;
+            transition: all 0.3s ease;
+        }
+
+        .privacy-section:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .privacy-section h3 {
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, var(--rich-purple), var(--bright-teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+        }
+
+        .privacy-section p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: var(--text-dark);
+            margin-bottom: 1.2rem;
+        }
+
+        .privacy-section ul {
+            margin-left: 2rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .privacy-section li {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 0.8rem;
+            color: var(--text-dark);
+        }
+
+        .privacy-contact {
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--accent-gold) 100%);
+            background-size: 200% 200%;
+            animation: gradient-shift 5s ease infinite;
+            padding: 3rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .privacy-contact:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 35px rgba(255, 215, 0, 0.5);
+        }
+
+        .privacy-contact h3 {
+            font-size: 2rem;
+            color: var(--deep-navy);
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+        }
+
+        .privacy-contact p {
+            font-size: 1.1rem;
+            color: var(--deep-navy);
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .privacy-contact a {
+            color: var(--deep-navy);
+            text-decoration: underline;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+
+        .privacy-contact a:hover {
+            color: var(--rich-purple);
+        }
+
         #contact {
             background: linear-gradient(135deg, var(--deep-navy) 0%, var(--rich-purple) 100%);
+            background-size: 200% 200%;
+            animation: gradient-shift 10s ease infinite;
             color: var(--white);
         }
 
@@ -433,6 +1088,14 @@
             border-radius: 20px;
             backdrop-filter: blur(10px);
             border: 2px solid rgba(255, 215, 0, 0.3);
+            animation: fadeInUp 0.8s ease-out;
+            transition: all 0.4s ease;
+        }
+
+        .contact-form:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 215, 0, 0.5);
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.2);
         }
 
         .form-group {
@@ -466,7 +1129,8 @@
         .form-group select:focus {
             outline: none;
             border-color: var(--primary-gold);
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            transform: translateY(-2px);
         }
 
         .form-group textarea {
@@ -474,9 +1138,35 @@
             resize: vertical;
         }
 
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-top: 0.3rem;
+            cursor: pointer;
+        }
+
+        .checkbox-group label {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--white);
+            margin-bottom: 0;
+        }
+
+        .checkbox-group a {
+            color: var(--primary-gold);
+            text-decoration: underline;
+        }
+
         .submit-button {
             width: 100%;
             background: linear-gradient(135deg, var(--primary-gold) 0%, var(--accent-gold) 100%);
+            background-size: 200% 200%;
             color: var(--deep-navy);
             padding: 1.3rem 2rem;
             border: none;
@@ -493,6 +1183,8 @@
         .submit-button:hover {
             transform: translateY(-5px) scale(1.02);
             box-shadow: 0 10px 35px rgba(255, 215, 0, 0.6);
+            background-position: 100% 0;
+            animation: pulse 0.5s ease;
         }
 
         .contact-info {
@@ -513,34 +1205,115 @@
             color: var(--primary-gold);
             text-decoration: none;
             font-weight: 700;
+            transition: all 0.3s ease;
         }
 
         .contact-info a:hover {
             text-decoration: underline;
+            color: var(--bright-teal);
         }
 
         footer {
             background: var(--deep-navy);
             color: var(--bright-teal);
-            text-align: center;
             padding: 3rem 2rem;
         }
 
-        footer p {
-            font-size: 1rem;
-            font-weight: 600;
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .footer-section h4 {
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section p {
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--bright-teal);
+            text-decoration: none;
+            margin: 0 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-gold);
+            text-decoration: underline;
+            transform: translateY(-2px);
         }
 
         @media (max-width: 768px) {
+            /* Remove sticky header on mobile */
+            header {
+                position: relative;
+            }
+
             .header-container {
-                flex-direction: column;
-                gap: 1.5rem;
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 1rem;
+            }
+
+            .logo-container {
+                gap: 1rem;
+            }
+
+            .logo-container img {
+                width: 50px;
+            }
+
+            .brand-text h1 {
+                font-size: 1.1rem;
+                line-height: 1.3;
+            }
+
+            .brand-text p {
+                font-size: 0.8rem;
+            }
+
+            /* Show hamburger on mobile */
+            .hamburger {
+                display: flex;
+            }
+
+            /* Hide navigation by default on mobile */
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: linear-gradient(135deg, var(--deep-navy) 0%, var(--rich-purple) 100%);
+                transition: right 0.4s ease;
+                padding: 5rem 2rem 2rem 2rem;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+            }
+
+            nav.active {
+                right: 0;
             }
 
             nav ul {
                 flex-direction: column;
-                gap: 1rem;
-                text-align: center;
+                gap: 2rem;
+                text-align: left;
+            }
+
+            nav a {
+                font-size: 1.3rem;
+                display: block;
+                padding: 0.5rem 0;
             }
 
             .hero h2 {
@@ -551,12 +1324,24 @@
                 font-size: 1.1rem;
             }
 
+            .lead-magnet-container {
+                padding: 3rem 2rem;
+            }
+
+            .lead-magnet-container h2 {
+                font-size: 2rem;
+            }
+
             .about-content {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
 
             .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps-container {
                 grid-template-columns: 1fr;
             }
 
@@ -571,6 +1356,11 @@
             .contact-form {
                 padding: 2.5rem 1.5rem;
             }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
         }
 
         html {
@@ -583,14 +1373,21 @@
     <header>
         <div class="header-container">
             <div class="logo-container">
-                <img src="Screenshot 2026-02-06 140220.png" alt="Alyce B. Frick Book Marketing Logo">
+                <img src="LOGO.png" alt="Alyce B. Frick Book Marketing Logo">
                 
                 <div class="brand-text">
-                    <h1>Alyce B. Frick Book Marketing</h1>
+                    <h1>Alyce B. Frick<br>Book Marketing</h1>
                     <p>Research-Driven. Results-Focused.</p>
                 </div>
             </div>
-            <nav>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <nav id="nav">
                 <ul>
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
@@ -609,6 +1406,22 @@
         </div>
     </section>
 
+    <section id="lead-magnet">
+        <div class="lead-magnet-container">
+            <h2>Free Resource: The Book Discovery Gap Checklist</h2>
+            <h3>Is Your Book Invisible? Find Out Why in 5 Minutes</h3>
+            <p>Download the free Book Discovery Gap Checklist and identify the exact positioning problems keeping readers from finding your book.</p>
+            <p><strong>What you will get:</strong> A 12-point audit covering category selection, keyword optimization, metadata effectiveness, and competitive positioning. Includes specific action items you can implement immediately, even without hiring a consultant.</p>
+            
+            <form class="lead-form" action="https://formspree.io/f/xnjbakwl" method="POST">
+                <input type="hidden" name="_subject" value="New Checklist Download">
+                <input type="text" name="first-name" placeholder="First Name" required>
+                <input type="email" name="email" placeholder="Email Address" required>
+                <button type="submit">Download Free Checklist</button>
+            </form>
+        </div>
+    </section>
+
     <section id="about">
         <div class="section-header">
             <h2>About Alyce</h2>
@@ -623,6 +1436,7 @@
                 <p>For over a decade, I've specialized in one thing: identifying why well-written books sit undiscovered while mediocre ones thrive. The answer is rarely quality. It's almost always positioning.</p>
                 <p>I work with authors across genres, from debut novelists to backlist veterans, who need more than generic marketing advice. Through deep research into review patterns, category positioning, reader behavior, and algorithmic signals, I uncover the specific gaps keeping your book invisible.</p>
                 <p>My approach is calm, respectful, and data-driven. No hype. No empty promises. Just honest analysis of what's working, what isn't, and exactly how to fix it.</p>
+                <p>I came to book marketing through frustration. After working in digital analytics and SEO for traditional businesses, I watched talented author friends struggle to get their books discovered despite having quality writing and professional covers. The marketing advice they received was either too generic or based on outdated tactics. I started applying the same research methodologies I used in tech and e-commerce to book discovery, and the results were immediate. What started as helping a few friends turned into a specialized practice focused entirely on the mechanics of book discoverability. I have worked with over 200 authors across genres, from debut novelists to established midlist writers looking to break through plateau sales. My background in data analysis and consumer behavior research gives me a different lens than traditional book marketers. I do not do social media management, cover design, or ad campaigns. I focus exclusively on the technical positioning that determines whether algorithms and readers can find your book in the first place.</p>
                 <p><strong>Because your readers exist. They just don't know you do yet.</strong></p>
             </div>
         </div>
@@ -639,6 +1453,7 @@
             <div class="service-card">
                 <div class="service-icon">📊</div>
                 <h3>Book Discovery Analysis</h3>
+                <p>Perfect for authors who want to understand what is wrong before committing to a full strategy.</p>
                 <p>A comprehensive audit of why your book isn't being discovered, including:</p>
                 <ul>
                     <li>Category positioning assessment</li>
@@ -652,6 +1467,7 @@
             <div class="service-card">
                 <div class="service-icon">🎯</div>
                 <h3>Strategic Repositioning</h3>
+                <p>Includes full discovery analysis plus complete implementation strategy for category, keywords, and metadata.</p>
                 <p>Fixing the mechanics that keep readers from finding you:</p>
                 <ul>
                     <li>Category optimization strategy</li>
@@ -665,6 +1481,7 @@
             <div class="service-card">
                 <div class="service-icon">📚</div>
                 <h3>Series Relaunch Strategy</h3>
+                <p>Comprehensive multi-book positioning strategy. Price may vary based on series length (4+ books may be quoted individually).</p>
                 <p>Coordinated visibility for multi-book authors:</p>
                 <ul>
                     <li>Cross-book momentum planning</li>
@@ -678,6 +1495,7 @@
             <div class="service-card">
                 <div class="service-icon">🔄</div>
                 <h3>Backlist Revitalization</h3>
+                <p>For older titles that need a second launch. Includes trend analysis and repackaging strategy.</p>
                 <p>Breathing new life into older titles:</p>
                 <ul>
                     <li>Archive content assessment</li>
@@ -691,6 +1509,7 @@
             <div class="service-card">
                 <div class="service-icon">🌐</div>
                 <h3>Platform Building Consultation</h3>
+                <p>Long-term author brand development. Includes 90 days of email support.</p>
                 <p>Sustainable author brand development:</p>
                 <ul>
                     <li>Genre community identification</li>
@@ -704,6 +1523,7 @@
             <div class="service-card">
                 <div class="service-icon">✍️</div>
                 <h3>Launch Consultation</h3>
+                <p>Pre-publication strategy to ensure correct positioning from day one. Best booked 8-12 weeks before release.</p>
                 <p>Pre-publication positioning for maximum impact:</p>
                 <ul>
                     <li>Pre-launch category selection</li>
@@ -717,8 +1537,46 @@
         </div>
 
         <div class="pricing-note">
-            <h3>Investment Range: $299 to $1,299</h3>
-            <p>Custom packages tailored to your specific goals and catalog size</p>
+            <h3>Custom Packages Available</h3>
+            <p>Packages range from $299 to $1,299. Your package will be based on what we have discussed.</p>
+        </div>
+    </section>
+
+    <section id="how-it-works">
+        <div class="section-header">
+            <h2>How We Work Together</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="steps-container">
+            
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3>Initial Email Conversation</h3>
+                <p>After you submit your inquiry, I will respond within 24-48 hours with follow-up questions about your book and goals. This helps me understand your specific situation and recommend the right service for your needs. No pressure, no sales calls. Just a straightforward email exchange.</p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3>Deep Research Phase</h3>
+                <p>Once we begin, I conduct comprehensive research into your book's current positioning, competitive landscape, category performance, keyword gaps, and review patterns. This typically takes 1-2 weeks depending on project scope. You do not need to do anything during this phase except answer any clarification questions that come up.</p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3>Strategy Delivery</h3>
+                <p>You receive a detailed written strategy document that explains exactly what is preventing discovery and how to fix it. This includes specific category recommendations, keyword lists, metadata revisions, competitive positioning analysis, and step-by-step implementation instructions. Everything is explained clearly so you understand not just what to do, but why it matters.</p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <h3>Implementation Support</h3>
+                <p>After you receive your strategy, you have two weeks to ask follow-up questions via email as you implement the changes. I provide guidance on execution, troubleshooting, and any adjustments needed based on your specific platform or publishing setup.</p>
+            </div>
+
+        </div>
+
+        <div class="timeline-note">
+            <p><strong>Timeline:</strong> Most projects are completed within 2-4 weeks from start to finish.</p>
         </div>
     </section>
 
@@ -760,6 +1618,65 @@
         </div>
     </section>
 
+    <section id="faq">
+        <div class="section-header">
+            <h2>Frequently Asked Questions</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="faq-container">
+            
+            <div class="faq-item">
+                <div class="faq-question">How long does a typical project take?</div>
+                <div class="faq-answer">
+                    <p>Most projects are completed within 2-4 weeks from our initial conversation to final strategy delivery. Book Discovery Analysis and Strategic Repositioning typically take 2 weeks. More comprehensive projects like Series Relaunch or Backlist Revitalization may take 3-4 weeks depending on catalog size.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Do you work with self-published authors, traditionally published authors, or both?</div>
+                <div class="faq-answer">
+                    <p>I work with both self-published and traditionally published authors. The strategies differ slightly based on your publishing path, but the core research and positioning principles apply universally. Self-published authors typically have more control over implementation, while traditionally published authors may need to coordinate changes with their publisher.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What information do I need to provide to get started?</div>
+                <div class="faq-answer">
+                    <p>You will need to provide your book title, ASIN or ISBN, current sales links (Amazon, Goodreads, etc.), any existing marketing materials or metadata, and a brief description of what you have tried so far. If you have multiple books, a complete list of your catalog is helpful. Everything else I can research independently.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What if I have already tried marketing and it did not work?</div>
+                <div class="faq-answer">
+                    <p>Most authors I work with have already tried various marketing tactics without success. The issue is rarely effort. It is usually positioning, category selection, or metadata gaps that prevent discovery in the first place. My approach identifies the specific mechanical failures preventing your book from being found, which is different from traditional marketing advice.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How do we communicate during the project?</div>
+                <div class="faq-answer">
+                    <p>All communication happens via email. You will receive regular updates at key milestones, and I am available to answer questions throughout the process. Once your strategy is delivered, you will receive a comprehensive document with all recommendations and can ask follow-up questions via email.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Do you guarantee specific results?</div>
+                <div class="faq-answer">
+                    <p>I do not guarantee specific sales numbers or rankings because book discovery depends on many factors beyond positioning alone, including book quality, cover design, and market timing. However, I do guarantee that my research will identify concrete, actionable gaps in your current approach, and that implementing the recommended changes will improve your discoverability compared to your current setup.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What is the difference between the services offered?</div>
+                <div class="faq-answer">
+                    <p>Book Discovery Analysis is diagnostic. It identifies what is wrong but does not include implementation strategy. Strategic Repositioning includes both diagnosis and a complete action plan for fixing category, keywords, and metadata. Series Relaunch and Backlist Revitalization are specialized versions for multi-book authors or older titles. Platform Building focuses on author brand and audience growth rather than individual book positioning. Launch Consultation is for pre-publication setup to ensure correct positioning from day one.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <section id="contact">
         <div class="section-header">
             <h2>Let's Talk About Your Book</h2>
@@ -783,7 +1700,7 @@
                 <div class="form-group">
                     <label for="genre">Genre</label>
                     <select id="genre" name="genre">
-                        <option value="">Select genre...</option>
+                        <option value="">Select your genre</option>
                         <option value="romance">Romance</option>
                         <option value="thriller">Thriller/Suspense</option>
                         <option value="fantasy">Fantasy</option>
@@ -799,7 +1716,13 @@
                     <label for="message">What's your biggest challenge right now? *</label>
                     <textarea id="message" name="message" required placeholder="e.g., My book has great reviews but no visibility... I have a series but each book launched separately... I'm stuck at rank #500k and don't know why..."></textarea>
                 </div>
-                <button type="submit" class="submit-button">Send Your Inquiry</button>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" id="privacy" name="privacy" required>
+                    <label for="privacy">I agree to the <a href="#privacy-policy">Privacy Policy</a></label>
+                </div>
+
+                <button type="submit" class="submit-button">Send Inquiry</button>
             </form>
             <div class="contact-info">
                 <p><strong>Email:</strong> <a href="mailto:alycefrick00@gmail.com">alycefrick00@gmail.com</a></p>
@@ -808,10 +1731,147 @@
         </div>
     </section>
 
+    <section id="privacy-policy">
+        <div class="section-header">
+            <h2>Privacy Policy</h2>
+            <div class="section-divider"></div>
+            <p>Last Updated: February 2026</p>
+        </div>
+
+        <div class="privacy-content">
+            <div class="privacy-section">
+                <h3>Information We Collect</h3>
+                <p>When you visit Alyce B. Frick Book Marketing, we may collect the following information:</p>
+                <p>Contact information you provide through forms, including your name, email address, book title, genre, and any messages you send through our contact form or resource download forms.</p>
+                <p>Automatically collected information such as your IP address, browser type, device information, and pages visited through standard web analytics tools.</p>
+            </div>
+
+            <div class="privacy-section">
+                <h3>How We Use Your Information</h3>
+                <p>We use the information you provide to:</p>
+                <ul>
+                    <li>Respond to your inquiries and provide the services you request</li>
+                    <li>Send you the free resources you download</li>
+                    <li>Improve our website and services</li>
+                    <li>Comply with legal obligations</li>
+                </ul>
+                <p>We will never sell, rent, or share your personal information with third parties for their marketing purposes.</p>
+            </div>
+
+            <div class="privacy-section">
+                <h3>Data Storage and Security</h3>
+                <p>Your information is stored securely and we take reasonable measures to protect it from unauthorized access, disclosure, or destruction. However, no method of transmission over the internet is 100% secure.</p>
+            </div>
+
+            <div class="privacy-section">
+                <h3>Third-Party Services</h3>
+                <p>We may use third-party services for email delivery, form processing, and website analytics. These services have their own privacy policies and we encourage you to review them.</p>
+            </div>
+
+            <div class="privacy-section">
+                <h3>Your Rights</h3>
+                <p>You have the right to:</p>
+                <ul>
+                    <li>Request access to the personal information we hold about you</li>
+                    <li>Request correction of inaccurate information</li>
+                    <li>Request deletion of your information</li>
+                </ul>
+            </div>
+
+            <div class="privacy-section">
+                <h3>Cookies</h3>
+                <p>This website may use cookies to improve user experience and analyze site traffic. You can control cookie settings through your browser.</p>
+            </div>
+
+            <div class="privacy-section">
+                <h3>Children's Privacy</h3>
+                <p>Our services are not directed to individuals under 18 years of age. We do not knowingly collect personal information from children.</p>
+            </div>
+
+            <div class="privacy-section">
+                <h3>Changes to This Policy</h3>
+                <p>We may update this privacy policy from time to time. Any changes will be posted on this page with an updated revision date.</p>
+            </div>
+
+            <div class="privacy-contact">
+                <h3>Contact Us</h3>
+                <p>If you have questions about this privacy policy or how your information is handled, please contact:</p>
+                <p><strong>Alyce B. Frick</strong><br>
+                Email: <a href="mailto:alycefrick00@gmail.com">alycefrick00@gmail.com</a></p>
+            </div>
+        </div>
+    </section>
+
     <footer>
-        <p>&copy; 2025 Alyce B. Frick Book Marketing. All rights reserved.</p>
-        <p>Research-Driven Book Marketing for Authors Who Deserve to Be Discovered</p>
+        <div class="footer-container">
+            <div class="footer-section">
+                <p>&copy; 2026 Alyce B. Frick Book Marketing</p>
+                <p>All rights reserved</p>
+            </div>
+            <div class="footer-section">
+                <p><a href="#privacy-policy">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+            <div class="footer-section">
+                <p><strong>Email:</strong> <a href="mailto:alycefrick00@gmail.com">alycefrick00@gmail.com</a></p>
+                <p>Serving Authors Worldwide</p>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        // FAQ Accordion functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isActive = this.classList.contains('active');
+                    
+                    // Close all other FAQs
+                    faqQuestions.forEach(q => {
+                        q.classList.remove('active');
+                        q.nextElementSibling.classList.remove('active');
+                    });
+                    
+                    // Toggle current FAQ
+                    if (!isActive) {
+                        this.classList.add('active');
+                        answer.classList.add('active');
+                    }
+                });
+            });
+
+            // Hamburger menu functionality
+            const hamburger = document.getElementById('hamburger');
+            const nav = document.getElementById('nav');
+            const navLinks = document.querySelectorAll('nav a');
+
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('active');
+                nav.classList.toggle('active');
+            });
+
+            // Close menu when clicking a link
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    hamburger.classList.remove('active');
+                    nav.classList.remove('active');
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                const isClickInsideNav = nav.contains(event.target);
+                const isClickOnHamburger = hamburger.contains(event.target);
+                
+                if (!isClickInsideNav && !isClickOnHamburger && nav.classList.contains('active')) {
+                    hamburger.classList.remove('active');
+                    nav.classList.remove('active');
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>

@@ -265,7 +265,7 @@
             font-size: 3.5rem;
             font-weight: 900;
             margin-bottom: 1.5rem;
-            line-height: 1.2;
+            line-height: 1.3;
             text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
             animation: fadeInUp 1s ease-out 0.2s both;
         }
@@ -544,6 +544,7 @@
         .service-card:nth-child(4) { animation-delay: 0.4s; }
         .service-card:nth-child(5) { animation-delay: 0.5s; }
         .service-card:nth-child(6) { animation-delay: 0.6s; }
+        .service-card:nth-child(7) { animation-delay: 0.7s; }
 
         .service-card::before {
             content: '';
@@ -1389,8 +1390,8 @@
             
             <nav id="nav">
                 <ul>
-                    <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
                     <li><a href="#testimonials">Clients</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -1400,48 +1401,13 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h2>Research-Driven Book Marketing for Authors <span class="hero-accent">Who Deserve to Be Discovered</span></h2>
+            <h2>Research-Driven<br><span class="hero-accent">Book Marketing For Authors</span></h2>
             <p>Your book isn't failing. It's invisible. I help authors fix the discovery gaps keeping readers from finding the work they'd love.</p>
             <a href="#contact" class="cta-button">Start the Conversation</a>
         </div>
     </section>
 
-    <section id="lead-magnet">
-        <div class="lead-magnet-container">
-            <h2>Free Resource: The Book Discovery Gap Checklist</h2>
-            <h3>Is Your Book Invisible? Find Out Why in 5 Minutes</h3>
-            <p>Download the free Book Discovery Gap Checklist and identify the exact positioning problems keeping readers from finding your book.</p>
-            <p><strong>What you will get:</strong> A 12-point audit covering category selection, keyword optimization, metadata effectiveness, and competitive positioning. Includes specific action items you can implement immediately, even without hiring a consultant.</p>
-            
-            <form class="lead-form" action="https://formspree.io/f/xnjbakwl" method="POST">
-                <input type="hidden" name="_subject" value="New Checklist Download">
-                <input type="text" name="first-name" placeholder="First Name" required>
-                <input type="email" name="email" placeholder="Email Address" required>
-                <button type="submit">Download Free Checklist</button>
-            </form>
-        </div>
-    </section>
-
-    <section id="about">
-        <div class="section-header">
-            <h2>About Alyce</h2>
-            <div class="section-divider"></div>
-            <p>Strategic book marketing built on data, not guesswork</p>
-        </div>
-        <div class="about-content">
-            <img src="Alyce.expert.png" alt="Alyce B. Frick">
-            
-            <div class="about-text">
-                <h3>I help authors who write great books but can't find their readers.</h3>
-                <p>For over a decade, I've specialized in one thing: identifying why well-written books sit undiscovered while mediocre ones thrive. The answer is rarely quality. It's almost always positioning.</p>
-                <p>I work with authors across genres, from debut novelists to backlist veterans, who need more than generic marketing advice. Through deep research into review patterns, category positioning, reader behavior, and algorithmic signals, I uncover the specific gaps keeping your book invisible.</p>
-                <p>My approach is calm, respectful, and data-driven. No hype. No empty promises. Just honest analysis of what's working, what isn't, and exactly how to fix it.</p>
-                <p>I came to book marketing through frustration. After working in digital analytics and SEO for traditional businesses, I watched talented author friends struggle to get their books discovered despite having quality writing and professional covers. The marketing advice they received was either too generic or based on outdated tactics. I started applying the same research methodologies I used in tech and e-commerce to book discovery, and the results were immediate. What started as helping a few friends turned into a specialized practice focused entirely on the mechanics of book discoverability. I have worked with over 200 authors across genres, from debut novelists to established midlist writers looking to break through plateau sales. My background in data analysis and consumer behavior research gives me a different lens than traditional book marketers. I do not do social media management, cover design, or ad campaigns. I focus exclusively on the technical positioning that determines whether algorithms and readers can find your book in the first place.</p>
-                <p><strong>Because your readers exist. They just don't know you do yet.</strong></p>
-            </div>
-        </div>
-    </section>
-
+    <!-- SERVICES SECTION (NOW FIRST) -->
     <section id="services">
         <div class="section-header">
             <h2>Services</h2>
@@ -1534,14 +1500,52 @@
                 </ul>
             </div>
 
+            <!-- NEW SERVICE -->
+            <div class="service-card">
+                <div class="service-icon">✉️</div>
+                <h3>Query Letter Review & Agent Targeting</h3>
+                <p>Strategic guidance for authors seeking traditional publishing representation.</p>
+                <p>Professional query support to maximize your chances:</p>
+                <ul>
+                    <li>Query letter analysis & refinement</li>
+                    <li>Comp title identification for your genre</li>
+                    <li>Agent research & targeting strategy</li>
+                    <li>Manuscript positioning guidance</li>
+                    <li>Submission timeline planning</li>
+                </ul>
+            </div>
+
         </div>
 
+        <!-- CUSTOM PACKAGES SECTION -->
         <div class="pricing-note">
             <h3>Custom Packages Available</h3>
             <p>Packages range from $299 to $1,299. Your package will be based on what we have discussed.</p>
         </div>
     </section>
 
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <div class="section-header">
+            <h2>About Alyce</h2>
+            <div class="section-divider"></div>
+            <p>Strategic book marketing built on data, not guesswork</p>
+        </div>
+        <div class="about-content">
+            <img src="Alyce.expert.png" alt="Alyce B. Frick">
+            
+            <div class="about-text">
+                <h3>I help authors find their readers</h3>
+                <p>For over a decade, I've specialized in one thing: identifying why well-written books sit undiscovered while mediocre ones thrive. The answer is rarely quality. It's almost always positioning.</p>
+                <p>I work with authors across genres, from debut novelists to backlist veterans, who need more than generic marketing advice. Through deep research into review patterns, category positioning, reader behavior, and algorithmic signals, I uncover the specific gaps keeping your book invisible.</p>
+                <p>My approach is calm, respectful, and data-driven. No hype. No empty promises. Just honest analysis of what's working, what isn't, and exactly how to fix it.</p>
+                <p>I came to book marketing through frustration. After working in digital analytics and SEO for traditional businesses, I watched talented author friends struggle to get their books discovered despite having quality writing and professional covers. The marketing advice they received was either too generic or based on outdated tactics. I started applying the same research methodologies I used in tech and e-commerce to book discovery, and the results were immediate. What started as helping a few friends turned into a specialized practice focused entirely on the mechanics of book discoverability. I have worked with over 200 authors across genres, from debut novelists to established midlist writers looking to break through plateau sales. My background in data analysis and consumer behavior research gives me a different lens than traditional book marketers. I do not do social media management, cover design, or ad campaigns. I focus exclusively on the technical positioning that determines whether algorithms and readers can find your book in the first place.</p>
+                <p><strong>Because your readers exist. They just don't know you do yet.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS SECTION -->
     <section id="how-it-works">
         <div class="section-header">
             <h2>How We Work Together</h2>
@@ -1580,6 +1584,7 @@
         </div>
     </section>
 
+    <!-- TESTIMONIALS SECTION -->
     <section id="testimonials">
         <div class="section-header">
             <h2>Author Success Stories</h2>
@@ -1618,6 +1623,79 @@
         </div>
     </section>
 
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <div class="section-header">
+            <h2>Let's Talk About Your Book</h2>
+            <div class="section-divider"></div>
+            <p>Tell me what's not working. I'll tell you why and how to fix it.</p>
+        </div>
+        <div class="contact-container">
+            <form class="contact-form" action="https://formspree.io/f/xnjbakwl" method="POST">
+                <div class="form-group">
+                    <label for="name">Your Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="book-title">Book Title</label>
+                    <input type="text" id="book-title" name="book-title">
+                </div>
+                <div class="form-group">
+                    <label for="genre">Genre</label>
+                    <select id="genre" name="genre">
+                        <option value="">Select your genre</option>
+                        <option value="romance">Romance</option>
+                        <option value="thriller">Thriller/Suspense</option>
+                        <option value="fantasy">Fantasy</option>
+                        <option value="scifi">Science Fiction</option>
+                        <option value="mystery">Mystery</option>
+                        <option value="literary">Literary Fiction</option>
+                        <option value="horror">Horror</option>
+                        <option value="nonfiction">Nonfiction</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">What's your biggest challenge right now? *</label>
+                    <textarea id="message" name="message" required placeholder="e.g., My book has great reviews but no visibility... I have a series but each book launched separately... I'm stuck at rank #500k and don't know why..."></textarea>
+                </div>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" id="privacy" name="privacy" required>
+                    <label for="privacy">I agree to the <a href="#privacy-policy">Privacy Policy</a></label>
+                </div>
+
+                <button type="submit" class="submit-button">Send Inquiry</button>
+            </form>
+            <div class="contact-info">
+                <p><strong>Email:</strong> <a href="mailto:alycefrick00@gmail.com">alycefrick00@gmail.com</a></p>
+                <p><strong>Serving Authors Worldwide</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- LEAD MAGNET SECTION (MOVED DOWN) -->
+    <section id="lead-magnet">
+        <div class="lead-magnet-container">
+            <h2>Free Resource: The Book Discovery Gap Checklist</h2>
+            <h3>Is Your Book Invisible? Find Out Why in 5 Minutes</h3>
+            <p>Download the free Book Discovery Gap Checklist and identify the exact positioning problems keeping readers from finding your book.</p>
+            <p><strong>What you will get:</strong> A 12-point audit covering category selection, keyword optimization, metadata effectiveness, and competitive positioning. Includes specific action items you can implement immediately, even without hiring a consultant.</p>
+            
+            <form class="lead-form" action="https://formspree.io/f/xnjbakwl" method="POST">
+                <input type="hidden" name="_subject" value="New Checklist Download">
+                <input type="text" name="first-name" placeholder="First Name" required>
+                <input type="email" name="email" placeholder="Email Address" required>
+                <button type="submit">Download Free Checklist</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
     <section id="faq">
         <div class="section-header">
             <h2>Frequently Asked Questions</h2>
@@ -1677,60 +1755,7 @@
         </div>
     </section>
 
-    <section id="contact">
-        <div class="section-header">
-            <h2>Let's Talk About Your Book</h2>
-            <div class="section-divider"></div>
-            <p>Tell me what's not working. I'll tell you why and how to fix it.</p>
-        </div>
-        <div class="contact-container">
-            <form class="contact-form" action="https://formspree.io/f/xnjbakwl" method="POST">
-                <div class="form-group">
-                    <label for="name">Your Name *</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="book-title">Book Title</label>
-                    <input type="text" id="book-title" name="book-title">
-                </div>
-                <div class="form-group">
-                    <label for="genre">Genre</label>
-                    <select id="genre" name="genre">
-                        <option value="">Select your genre</option>
-                        <option value="romance">Romance</option>
-                        <option value="thriller">Thriller/Suspense</option>
-                        <option value="fantasy">Fantasy</option>
-                        <option value="scifi">Science Fiction</option>
-                        <option value="mystery">Mystery</option>
-                        <option value="literary">Literary Fiction</option>
-                        <option value="horror">Horror</option>
-                        <option value="nonfiction">Nonfiction</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="message">What's your biggest challenge right now? *</label>
-                    <textarea id="message" name="message" required placeholder="e.g., My book has great reviews but no visibility... I have a series but each book launched separately... I'm stuck at rank #500k and don't know why..."></textarea>
-                </div>
-                
-                <div class="checkbox-group">
-                    <input type="checkbox" id="privacy" name="privacy" required>
-                    <label for="privacy">I agree to the <a href="#privacy-policy">Privacy Policy</a></label>
-                </div>
-
-                <button type="submit" class="submit-button">Send Inquiry</button>
-            </form>
-            <div class="contact-info">
-                <p><strong>Email:</strong> <a href="mailto:alycefrick00@gmail.com">alycefrick00@gmail.com</a></p>
-                <p><strong>Serving Authors Worldwide</strong></p>
-            </div>
-        </div>
-    </section>
-
+    <!-- PRIVACY POLICY SECTION -->
     <section id="privacy-policy">
         <div class="section-header">
             <h2>Privacy Policy</h2>

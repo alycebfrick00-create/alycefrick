@@ -200,9 +200,9 @@
 
         .brand-text p {
             font-size: 0.8rem;
-            color: var(--bright-teal);
+            color: var(--white);
             font-weight: 600;
-            font-style: italic;
+            opacity: 0.9;
         }
 
         .nav-right {
@@ -274,9 +274,8 @@
         .header-social a {
             color: var(--white);
             text-decoration: none;
-            font-size: 1rem;
-            width: 30px;
-            height: 30px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             border: 2px solid rgba(255, 215, 0, 0.4);
             display: flex;
@@ -289,6 +288,12 @@
             background: var(--primary-gold);
             color: var(--deep-navy);
             border-color: var(--primary-gold);
+        }
+
+        .header-social svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
         }
 
         /* ========== HERO ========== */
@@ -320,22 +325,26 @@
             font-weight: 900;
             margin-bottom: 1.5rem;
             line-height: 1.2;
+            color: var(--white);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
         .hero-accent {
             color: var(--primary-gold);
             display: block;
             margin-top: 0.5rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
         .hero p {
             font-size: 1.25rem;
             margin-bottom: 2.5rem;
-            color: var(--bright-teal);
+            color: rgba(255,255,255,0.95);
             line-height: 1.7;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.2);
         }
 
         .cta-button {
@@ -433,7 +442,7 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
@@ -447,6 +456,8 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.08);
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .service-card::before {
@@ -482,11 +493,33 @@
         .service-card ul {
             padding-left: 1.3rem;
             margin-top: 0.5rem;
+            flex-grow: 1;
         }
 
         .service-card li {
             margin-bottom: 0.4rem;
             font-size: 0.9rem;
+        }
+
+        .service-cta {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.8rem 1.5rem;
+            background: transparent;
+            color: var(--rich-purple);
+            border: 2px solid var(--primary-gold);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .service-cta:hover {
+            background: var(--primary-gold);
+            color: var(--deep-navy);
+            transform: translateY(-2px);
         }
 
         .pricing-note {
@@ -555,7 +588,7 @@
 
         /* ========== ABOUT ========== */
         #about {
-            background: linear-gradient(135deg, var(--light-gray), var(--white));
+            background: var(--white);
         }
 
         .about-content {
@@ -596,7 +629,7 @@
         .about-text strong { color: var(--coral); }
 
         /* ========== TRUST ========== */
-        #trust { background: var(--white); }
+        #trust { background: linear-gradient(135deg, var(--light-gray), var(--white)); }
 
         .trust-badges {
             display: grid;
@@ -609,7 +642,7 @@
         }
 
         .trust-badge {
-            background: linear-gradient(135deg, var(--light-gray), var(--white));
+            background: var(--white);
             padding: 2rem;
             border-radius: 15px;
             text-align: center;
@@ -635,7 +668,7 @@
 
         /* ========== HOW IT WORKS ========== */
         #how-it-works {
-            background: linear-gradient(135deg, var(--white), var(--light-gray));
+            background: var(--white);
         }
 
         .steps-container {
@@ -646,7 +679,7 @@
         }
 
         .step-card {
-            background: var(--white);
+            background: linear-gradient(135deg, var(--light-gray), var(--white));
             padding: 2rem 1.5rem;
             border-radius: 15px;
             text-align: center;
@@ -690,6 +723,7 @@
             background: var(--white);
             border-radius: 10px;
             border-left: 4px solid var(--coral);
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
         }
 
         .timeline-note p { font-size: 1rem; font-weight: 600; }
@@ -754,7 +788,7 @@
         }
 
         #contact .section-header h2 { color: var(--primary-gold); }
-        #contact .section-header p { color: var(--white); }
+        #contact .section-header p { color: rgba(255,255,255,0.9); }
 
         .contact-container {
             max-width: 700px;
@@ -888,7 +922,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.1rem;
             transition: all 0.3s ease;
         }
 
@@ -898,9 +931,15 @@
             border-color: var(--primary-gold);
         }
 
+        .contact-social svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
         /* ========== LEAD MAGNET ========== */
         #lead-magnet {
-            background: linear-gradient(135deg, var(--light-gray), #E8EAF6);
+            background: var(--white);
             padding: 5rem 2rem;
         }
 
@@ -908,7 +947,7 @@
             max-width: 750px;
             margin: 0 auto;
             text-align: center;
-            background: var(--white);
+            background: linear-gradient(135deg, var(--light-gray), #E8EAF6);
             padding: 3rem 2.5rem;
             border-radius: 15px;
             box-shadow: 0 8px 30px rgba(74, 20, 140, 0.15);
@@ -976,8 +1015,8 @@
             box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
         }
 
-        /* ========== FAQ - FIXED FOR MOBILE ========== */
-        #faq { background: var(--white); }
+        /* ========== FAQ ========== */
+        #faq { background: linear-gradient(135deg, var(--light-gray), var(--white)); }
 
         .faq-container {
             max-width: 900px;
@@ -1050,74 +1089,6 @@
             color: var(--text-dark);
         }
 
-        /* ========== PRIVACY ========== */
-        #privacy-policy {
-            background: linear-gradient(135deg, var(--light-gray), var(--white));
-        }
-
-        .privacy-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .privacy-section {
-            background: var(--white);
-            padding: 1.8rem;
-            margin-bottom: 1.2rem;
-            border-radius: 10px;
-            border-left: 4px solid var(--primary-gold);
-            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
-        }
-
-        .privacy-section h3 {
-            font-size: 1.3rem;
-            color: var(--rich-purple);
-            margin-bottom: 0.8rem;
-        }
-
-        .privacy-section p {
-            font-size: 0.9rem;
-            line-height: 1.7;
-            margin-bottom: 0.6rem;
-        }
-
-        .privacy-section ul {
-            margin-left: 1.5rem;
-            margin-bottom: 0.6rem;
-        }
-
-        .privacy-section li {
-            font-size: 0.9rem;
-            line-height: 1.7;
-            margin-bottom: 0.4rem;
-        }
-
-        .privacy-contact {
-            background: var(--primary-gold);
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .privacy-contact h3 {
-            font-size: 1.5rem;
-            color: var(--deep-navy);
-            margin-bottom: 0.8rem;
-        }
-
-        .privacy-contact p {
-            font-size: 0.95rem;
-            color: var(--deep-navy);
-            font-weight: 600;
-            margin-bottom: 0.3rem;
-        }
-
-        .privacy-contact a {
-            color: var(--deep-navy);
-            text-decoration: underline;
-            font-weight: 700;
-        }
-
         /* ========== FOOTER ========== */
         footer {
             background: var(--deep-navy);
@@ -1178,6 +1149,12 @@
             background: var(--primary-gold);
             color: var(--deep-navy);
             border-color: var(--primary-gold);
+        }
+
+        .footer-social svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
         }
 
         .footer-newsletter-form {
@@ -1408,6 +1385,12 @@
                 font-size: 0.8rem;
             }
 
+            .service-cta {
+                margin-top: 1rem;
+                padding: 0.7rem 1.2rem;
+                font-size: 0.85rem;
+            }
+
             .pricing-note {
                 padding: 1.5rem 1rem;
                 margin-top: 1.5rem;
@@ -1561,20 +1544,6 @@
                 line-height: 1.7;
             }
 
-            /* PRIVACY */
-            .privacy-section {
-                padding: 1.2rem;
-            }
-
-            .privacy-section h3 {
-                font-size: 1.1rem;
-            }
-
-            .privacy-section p,
-            .privacy-section li {
-                font-size: 0.8rem;
-            }
-
             /* FOOTER */
             .footer-container {
                 grid-template-columns: 1fr;
@@ -1662,8 +1631,12 @@
                     </ul>
                 </nav>
                 <div class="header-social">
-                    <a href="https://www.tiktok.com/@alyce_frick22" target="_blank" rel="noopener noreferrer" title="TikTok">🎵</a>
-                    <a href="https://www.facebook.com/alycebriellefrick00" target="_blank" rel="noopener noreferrer" title="Facebook">📘</a>
+                    <a href="https://www.tiktok.com/@alyce_frick22" target="_blank" rel="noopener noreferrer" title="TikTok">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+                    </a>
+                    <a href="https://www.facebook.com/alycebriellefrick00" target="_blank" rel="noopener noreferrer" title="Facebook">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
                 </div>
             </div>
         </div>
@@ -1720,6 +1693,7 @@
                     <li>Review sentiment analysis</li>
                     <li>Algorithmic visibility diagnosis</li>
                 </ul>
+                <a href="#contact" class="service-cta">Get Started</a>
             </div>
             <div class="service-card">
                 <div class="service-icon">🎯</div>
@@ -1732,6 +1706,7 @@
                     <li>Comp title identification</li>
                     <li>Genre expectation alignment</li>
                 </ul>
+                <a href="#contact" class="service-cta">Get Started</a>
             </div>
             <div class="service-card">
                 <div class="service-icon">📚</div>
@@ -1744,6 +1719,7 @@
                     <li>Back-matter conversion design</li>
                     <li>Launch timing coordination</li>
                 </ul>
+                <a href="#contact" class="service-cta">Get Started</a>
             </div>
             <div class="service-card">
                 <div class="service-icon">🔄</div>
@@ -1756,6 +1732,7 @@
                     <li>Second-launch positioning</li>
                     <li>Award credential leverage</li>
                 </ul>
+                <a href="#contact" class="service-cta">Get Started</a>
             </div>
             <div class="service-card">
                 <div class="service-icon">🌐</div>
@@ -1768,6 +1745,7 @@
                     <li>Reader retention systems</li>
                     <li>Newsletter optimization</li>
                 </ul>
+                <a href="#contact" class="service-cta">Get Started</a>
             </div>
             <div class="service-card">
                 <div class="service-icon">✍️</div>
@@ -1780,6 +1758,7 @@
                     <li>Metadata optimization</li>
                     <li>Launch timeline architecture</li>
                 </ul>
+                <a href="#contact" class="service-cta">Get Started</a>
             </div>
             <div class="service-card">
                 <div class="service-icon">✉️</div>
@@ -1792,6 +1771,7 @@
                     <li>Manuscript positioning guidance</li>
                     <li>Submission timeline planning</li>
                 </ul>
+                <a href="#contact" class="service-cta">Get Started</a>
             </div>
         </div>
         <div class="pricing-note">
@@ -1905,56 +1885,62 @@
         </div>
     </section>
 
-    <div class="testimonials-grid">
-    <div class="testimonial-card">
-        <p class="testimonial-quote">"Working with Alyce transformed how I understood my book's place in the market. Her research was meticulous, her insights were surgical, and the repositioning strategy gave my novel the visibility it deserved."</p>
-        <div class="testimonial-author">
-            <span class="testimonial-name">Alice Winn</span>
-            <span class="testimonial-book">Author of <em>In Memoriam: A Novel</em></span>
-            <span class="testimonial-stats">★ 4.6/5 Amazon | 4.5/5 Goodreads</span>
+    <section id="testimonials">
+        <div class="section-header">
+            <h2>What Authors Say</h2>
+            <div class="section-divider"></div>
         </div>
-    </div>
-    <div class="testimonial-card">
-        <p class="testimonial-quote">"Alyce digs into the data, identifies exactly where discovery is breaking down, and presents solutions that actually make sense for your specific book. Respectful, professional, and refreshingly honest."</p>
-        <div class="testimonial-author">
-            <span class="testimonial-name">Elise Marion</span>
-            <span class="testimonial-book">Author of <em>The Rogue Prince</em></span>
-            <span class="testimonial-stats">Strong reader engagement in fantasy romance</span>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-quote">"Working with Alyce transformed how I understood my book's place in the market. Her research was meticulous, her insights were surgical, and the repositioning strategy gave my novel the visibility it deserved."</p>
+                <div class="testimonial-author">
+                    <span class="testimonial-name">Alice Winn</span>
+                    <span class="testimonial-book">Author of <em>In Memoriam: A Novel</em></span>
+                    <span class="testimonial-stats">★ 4.6/5 Amazon | 4.5/5 Goodreads</span>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-quote">"Alyce digs into the data, identifies exactly where discovery is breaking down, and presents solutions that actually make sense for your specific book. Respectful, professional, and refreshingly honest."</p>
+                <div class="testimonial-author">
+                    <span class="testimonial-name">Elise Marion</span>
+                    <span class="testimonial-book">Author of <em>The Rogue Prince</em></span>
+                    <span class="testimonial-stats">Strong reader engagement in fantasy romance</span>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-quote">"I had a good book that wasn't finding readers. Alyce showed me why. Her category repositioning and keyword strategy unlocked visibility I didn't know was possible."</p>
+                <div class="testimonial-author">
+                    <span class="testimonial-name">Siân O'Gorman</span>
+                    <span class="testimonial-book">Author of <em>Life After You</em></span>
+                    <span class="testimonial-stats">★ 4.3/5 Amazon | 4.3/5 Goodreads</span>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-quote">"My book had a 4.8 rating, 39 reviews, and Fox News coverage but was stuck at rank #225,753. Alyce showed me I was completely miscategorized. Her recommendations were detailed and actionable - I implemented them immediately."</p>
+                <div class="testimonial-author">
+                    <span class="testimonial-name">Ray (Yellow Heights)</span>
+                    <span class="testimonial-book">Author of <em>Unbalanced</em></span>
+                    <span class="testimonial-stats">Fox News Featured | ★ 4.8 Rating</span>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-quote">"Alyce's research into my book's positioning revealed gaps I never would have found on my own. Her strategy was clear, actionable, and made an immediate difference in how readers were discovering my work."</p>
+                <div class="testimonial-author">
+                    <span class="testimonial-name">Rachael C. Duncan</span>
+                    <span class="testimonial-book">Author of <em>Redeemed</em></span>
+                    <span class="testimonial-stats">Strong reader engagement in romance</span>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-quote">"Alyce understood exactly what my book needed to reach the right readers. Her genre-specific expertise and data-driven approach gave me a strategy that was practical, focused, and immediately implementable."</p>
+                <div class="testimonial-author">
+                    <span class="testimonial-name">Diane Setterfield</span>
+                    <span class="testimonial-book">Author of <em>Bellman & Black</em></span>
+                    <span class="testimonial-stats">Bestselling author | Strong literary fiction presence</span>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="testimonial-card">
-        <p class="testimonial-quote">"I had a good book that wasn't finding readers. Alyce showed me why. Her category repositioning and keyword strategy unlocked visibility I didn't know was possible."</p>
-        <div class="testimonial-author">
-            <span class="testimonial-name">Siân O'Gorman</span>
-            <span class="testimonial-book">Author of <em>Life After You</em></span>
-            <span class="testimonial-stats">★ 4.3/5 Amazon | 4.3/5 Goodreads</span>
-        </div>
-    </div>
-    <div class="testimonial-card">
-        <p class="testimonial-quote">"My book had a 4.8 rating, 39 reviews, and Fox News coverage but was stuck at rank #225,753. Alyce showed me I was completely miscategorized. Her recommendations were detailed and actionable - I implemented them immediately."</p>
-        <div class="testimonial-author">
-            <span class="testimonial-name">Ray (Yellow Heights)</span>
-            <span class="testimonial-book">Author of <em>Unbalanced</em></span>
-            <span class="testimonial-stats">Fox News Featured | ★ 4.8 Rating</span>
-        </div>
-    </div>
-    <div class="testimonial-card">
-        <p class="testimonial-quote">"Alyce's research into my book's positioning revealed gaps I never would have found on my own. Her strategy was clear, actionable, and made an immediate difference in how readers were discovering my work."</p>
-        <div class="testimonial-author">
-            <span class="testimonial-name">Rachael C. Duncan</span>
-            <span class="testimonial-book">Author of <em>Redeemed</em></span>
-            <span class="testimonial-stats">Strong reader engagement in romance</span>
-        </div>
-    </div>
-    <div class="testimonial-card">
-        <p class="testimonial-quote">"Alyce understood exactly what my book needed to reach the right readers. Her genre-specific expertise and data-driven approach gave me a strategy that was practical, focused, and immediately implementable."</p>
-        <div class="testimonial-author">
-            <span class="testimonial-name">Diane Setterfield</span>
-            <span class="testimonial-book">Author of <em>Bellman & Black</em></span>
-            <span class="testimonial-stats">Bestselling author | Strong literary fiction presence</span>
-        </div>
-    </div>
-</div>
+    </section>
 
     <section id="contact">
         <div class="section-header">
@@ -1997,7 +1983,7 @@
                 </div>
                 <div class="checkbox-group">
                     <input type="checkbox" id="privacy" name="privacy" required>
-                    <label for="privacy">I agree to the <a href="#privacy-policy">Privacy Policy</a></label>
+                    <label for="privacy">I agree to the <a href="privacy.html">Privacy Policy</a></label>
                 </div>
                 <button type="submit" class="submit-button">Send Inquiry</button>
             </form>
@@ -2005,8 +1991,12 @@
                 <p><strong>Email:</strong> <a href="mailto:alycefrick00@gmail.com">alycefrick00@gmail.com</a></p>
                 <p><strong>Serving Authors Worldwide</strong></p>
                 <div class="contact-social">
-                    <a href="https://www.tiktok.com/@alyce_frick22" target="_blank" rel="noopener noreferrer">🎵</a>
-                    <a href="https://www.facebook.com/alycebriellefrick00" target="_blank" rel="noopener noreferrer">📘</a>
+                    <a href="https://www.tiktok.com/@alyce_frick22" target="_blank" rel="noopener noreferrer" title="TikTok">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+                    </a>
+                    <a href="https://www.facebook.com/alycebriellefrick00" target="_blank" rel="noopener noreferrer" title="Facebook">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
                 </div>
             </div>
         </div>
@@ -2101,48 +2091,6 @@
         </div>
     </section>
 
-    <section id="privacy-policy">
-        <div class="section-header">
-            <h2>Privacy Policy</h2>
-            <div class="section-divider"></div>
-            <p>Last Updated: February 2026</p>
-        </div>
-        <div class="privacy-content">
-            <div class="privacy-section">
-                <h3>Information We Collect</h3>
-                <p>Contact information you provide through forms including name, email, book title, genre, and messages. Automatically collected information such as IP address, browser type, and pages visited.</p>
-            </div>
-            <div class="privacy-section">
-                <h3>How We Use Your Information</h3>
-                <ul>
-                    <li>Respond to inquiries and provide services</li>
-                    <li>Send free resources you download</li>
-                    <li>Improve our website and services</li>
-                    <li>Comply with legal obligations</li>
-                </ul>
-                <p>We will never sell or share your personal information with third parties for marketing purposes.</p>
-            </div>
-            <div class="privacy-section">
-                <h3>Your Rights</h3>
-                <ul>
-                    <li>Request access to your personal information</li>
-                    <li>Request correction of inaccurate information</li>
-                    <li>Request deletion of your information</li>
-                </ul>
-            </div>
-            <div class="privacy-section">
-                <h3>Data Storage, Cookies & Third Parties</h3>
-                <p>Your information is stored securely. This website may use cookies and third-party services for form processing and analytics. Our services are not directed to individuals under 18.</p>
-            </div>
-            <div class="privacy-contact">
-                <h3>Contact Us</h3>
-                <p>Questions about this policy?</p>
-                <p><strong>Alyce B. Frick</strong><br>
-                <a href="mailto:alycefrick00@gmail.com">alycefrick00@gmail.com</a></p>
-            </div>
-        </div>
-    </section>
-
     <footer>
         <div class="footer-container">
             <div class="footer-section">
@@ -2156,15 +2104,19 @@
                 <a href="#about">About</a>
                 <a href="#testimonials">Client Stories</a>
                 <a href="#contact">Contact</a>
-                <a href="#privacy-policy">Privacy Policy</a>
+                <a href="privacy.html">Privacy Policy</a>
             </div>
             <div class="footer-section">
                 <h4>Connect</h4>
                 <p><a href="mailto:alycefrick00@gmail.com">alycefrick00@gmail.com</a></p>
                 <p>Serving Authors Worldwide</p>
                 <div class="footer-social">
-                    <a href="https://www.tiktok.com/@alyce_frick22" target="_blank" rel="noopener noreferrer">🎵</a>
-                    <a href="https://www.facebook.com/alycebriellefrick00" target="_blank" rel="noopener noreferrer">📘</a>
+                    <a href="https://www.tiktok.com/@alyce_frick22" target="_blank" rel="noopener noreferrer" title="TikTok">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+                    </a>
+                    <a href="https://www.facebook.com/alycebriellefrick00" target="_blank" rel="noopener noreferrer" title="Facebook">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
                 </div>
             </div>
             <div class="footer-section">
@@ -2273,5 +2225,3 @@
 
 </body>
 </html>
-
-
